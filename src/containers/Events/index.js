@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import { useState } from "react";
 import EventCard from "../../components/EventCard";
 import Select from "../../components/Select";
@@ -17,14 +18,20 @@ const EventList = () => {
     (!type
       ? data?.events
       : data?.events) || []
-  ).filter((event, index) => {
+  ).filter((event, index) => {      
+    // Filtrage sur le type d event
     if (
-      (currentPage - 1) * PER_PAGE <= index &&
-      PER_PAGE * currentPage > index
+      (event.type === type || type === null)
     ) {
       return true;
     }
     return false;
+   }).filter((event, index) => {
+    // Filtrage sur la page
+    if ((currentPage - 1) * PER_PAGE <= index && PER_PAGE * currentPage > index) {
+      return true;
+    }
+    return false;    
   });
   const changeType = (evtType) => {
     setCurrentPage(1);
