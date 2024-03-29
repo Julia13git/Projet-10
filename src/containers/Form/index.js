@@ -12,10 +12,12 @@ const Form = ({ onSuccess, onError }) => {
     async (evt) => {
       evt.preventDefault();
       setSending(true);
-      // We try to call mockContactApi
+      // We try to call mockContactApi     
       try {
         await mockContactApi();
-        setSending(false);
+        // J'appelle la fonction onSuccess qui est déclaré en tant que "setIsOpened(true)" dans la Home
+        onSuccess();
+        setSending(false);        
       } catch (err) {
         setSending(false);
         onError(err);
