@@ -12,7 +12,8 @@ const PER_PAGE = 9;
 
 const EventList = () => {
   const { data, error } = useData();
-  const [type, setType] = useState();
+  // Ajout de "null" par défaut au chargement de la page qui correspond à l option "Tous"
+  const [type, setType] = useState(null);
   const [currentPage, setCurrentPage] = useState(1);
   const filteredEvents = (
     (!type
