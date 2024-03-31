@@ -16,8 +16,8 @@ const Form = ({ onSuccess, onError }) => {
       try {
         await mockContactApi();
         // J'appelle la fonction onSuccess qui est déclaré en tant que "setIsOpened(true)" dans la Home
-        onSuccess();
-        setSending(false);        
+        setSending(false);    
+        onSuccess();    
       } catch (err) {
         setSending(false);
         onError(err);
@@ -39,7 +39,7 @@ const Form = ({ onSuccess, onError }) => {
             titleEmpty
           />
           <Field placeholder="" label="Email" />
-          <Button type={BUTTON_TYPES.SUBMIT} disabled={sending}>
+          <Button type={BUTTON_TYPES.SUBMIT} disabled={sending} >
             {sending ? "En cours" : "Envoyer"}
           </Button>
         </div>

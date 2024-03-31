@@ -13,6 +13,7 @@ import Modal from "../../containers/Modal";
 import { useData } from "../../contexts/DataContext";
 
 const Page = () => {
+  // const {last} = useData()--le code avant
   // J ai changé last en data pour recuperer tous les events 
   const { data } = useData();
   // Je cherche le dernier event , celui dont l index est index [nbEvents - 1 ]
