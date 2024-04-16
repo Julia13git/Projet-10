@@ -49,9 +49,6 @@ describe("When a page is created", () => {
   })
   it("an event card, with the last event, is displayed", () => {
     // to implement
-    // const {container} = render(<Home />);
-    // const lastEventCard = container.querySelector(".EventCard--small");
-    // expect(lastEventCard).toBeInTheDocument();
     render (<Home />)
     const cardElement = screen.getByTestId("card-testid");
     expect(cardElement.className.includes("EventCard--small")).toEqual(true);

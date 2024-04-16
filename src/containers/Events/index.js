@@ -15,6 +15,19 @@ const EventList = () => {
   // Ajout de "null" par défaut au chargement de la page qui correspond à l option "Tous"
   const [type, setType] = useState(null);
   const [currentPage, setCurrentPage] = useState(1);
+  // const filteredEvents = (
+  //   (!type
+  //     ? data?.events
+  //     : data?.events) || []
+  // ).filter((event, index) => {
+  //   if (
+  //     (currentPage - 1) * PER_PAGE <= index &&
+  //     PER_PAGE * currentPage > index
+  //   ) {
+  //     return true;
+  //   }
+  //   return false;
+  // });
   const filteredEvents = (
     (!type
       ? data?.events
