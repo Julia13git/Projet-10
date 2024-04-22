@@ -18,18 +18,14 @@ const Page = () => {
   const { data } = useData();
   
   // On va copier le tableau avant de le trier 
-  const newData = JSON.parse(JSON.stringify(data))
+  // const newData = JSON.parse(JSON.stringify(data))
 
-  // On va trier les elements json par date croissante
-  const sortedData = newData?.events.sort((evtA, evtB) =>    
-    new Date(evtA.date) > new Date(evtB.date) ? 1 : -1
-  );
-  
-  // Je cherche le dernier event , celui dont l index est index [nbEvents - 1 ]
-  const lastEvent =
-  sortedData  && sortedData.length > 0
-    ? sortedData[sortedData.length - 1]
-    : null;
+  const lastEvent = data?.events.reduce((currentItem, item) => {
+    if (currentItem === null || new Date(item.date) > new Date(currentItem.date)) {
+      return item;
+    } 
+    return currentItem;
+  }, null);
 
   return <>
     <header>
