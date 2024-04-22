@@ -14,7 +14,7 @@ const Slider = () => {
   const nextCard = () => {
     setTimeout(
       // () => setIndex(index < byDateDesc.length ? index + 1 : 0),-- le code avant
-      () => setIndex(index < byDateDesc.length - 1 ? index + 1: 0),
+      () => setIndex( byDateDesc && (index < byDateDesc.length - 1)? index + 1: 0),
       5000
     );
   };
@@ -26,7 +26,7 @@ const Slider = () => {
       {byDateDesc?.map((event, idx) => (
         <>
           <div
-            key={event.title}
+            key={event.id}
             className={`SlideCard SlideCard--${
               index === idx ? "display" : "hide"
             }`}
